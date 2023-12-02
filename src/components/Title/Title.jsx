@@ -8,7 +8,7 @@ const Title = () => {
       <NavLink to="/" activeClassName="active" exact>
         Home
       </NavLink>
-      <NavLink to="/movies" activeClassName="active">
+      <NavLink to="/movies" activeClassName="active" exact>
         Movies
       </NavLink>
     </nav>

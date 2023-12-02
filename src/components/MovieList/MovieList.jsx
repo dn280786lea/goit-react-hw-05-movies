@@ -32,8 +32,8 @@ const MoviesList = () => {
             <img
               src={`${BASE_IMAGE_URL}${movie.poster_path}`}
               alt={movie.title}
-              width="auto"
-              height="auto"
+              width="200px"
+              height="200px"
             />
           </li>
         ))}

@@ -34,6 +34,7 @@ const MovieDetails = () => {
       <h2>{movieDetails.original_title}</h2>
       <button onClick={handleClick}>Go back</button>
       <img
+        className="img_moviedetails"
         src={`${BASE_IMAGE_URL}${movieDetails.poster_path}`}
         alt={movieDetails.title}
       />
