@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getMovieDetails, BASE_IMAGE_URL } from '../API/API';
+import {} from './MovieDatails.css';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -35,8 +36,6 @@ const MovieDetails = () => {
       <img
         src={`${BASE_IMAGE_URL}${movieDetails.poster_path}`}
         alt={movieDetails.title}
-        width="auto"
-        height="auto"
       />
       <p>{movieDetails.overview}</p>
       <p>{movieDetails.popularity}</p>

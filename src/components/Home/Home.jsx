@@ -4,7 +4,6 @@ import MoviesList from '../MovieList/MovieList';
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
       <MoviesList />
     </div>
   );

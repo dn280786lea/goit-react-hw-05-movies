@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getTrending } from '../API/API';
 import { Link } from 'react-router-dom';
+import {} from './MovieList.css';
+import { BASE_IMAGE_URL } from '../API/API';
 
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -19,12 +21,20 @@ const MoviesList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="Movie">
       <h2>Trending today</h2>
-      <ul>
+      <ul className="MovieGallery">
         {movies.map(movie => (
-          <li key={movie.id}>
-            <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+          <li className="MovieGalleryList" key={movie.id}>
+            <Link className="MovieLink" to={`/movie/${movie.id}`}>
+              {movie.title}
+            </Link>
+            <img
+              src={`${BASE_IMAGE_URL}${movie.poster_path}`}
+              alt={movie.title}
+              width="auto"
+              height="auto"
+            />
           </li>
         ))}
       </ul>
