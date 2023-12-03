@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { searchRewie } from '../API/API';
+import {} from './MovieReviews.css';
 
 const MovieReviews = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const MovieReviews = () => {
   }
 
   return (
-    <div>
+    <div className="reviews">
       <h2>Movie Reviews</h2>
       <ul>
         {reviews.results.map(review => (
