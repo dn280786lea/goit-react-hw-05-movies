@@ -31,7 +31,11 @@ const Cast = () => {
         {castData.cast.map(actor => (
           <li className="class-info-character" key={actor.id}>
             <img
-              src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+              src={
+                actor.profile_path
+                  ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+                  : '../img/istockphoto-1439973604-1024x1024.jpg'
+              }
               alt={actor.name}
             />
             <p>{actor.name}</p>

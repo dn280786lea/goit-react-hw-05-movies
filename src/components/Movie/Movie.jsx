@@ -63,7 +63,11 @@ const MovieSearch = () => {
             <Link className="MovieLink" to={`/movie/${movie.id}`}>
               <span className="movie-title">{movie.title}</span>
               <img
-                src={`${BASE_IMAGE_URL}${movie.poster_path}`}
+                src={
+                  movie.poster_path
+                    ? `${BASE_IMAGE_URL}${movie.poster_path}`
+                    : './img/istockphoto-1439973604-1024x1024.jpg'
+                }
                 alt={movie.title}
                 width="200px"
                 height="200px"

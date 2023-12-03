@@ -5,9 +5,12 @@ import {
   NavLink,
   Outlet,
   Link,
+  Routes,
+  Route,
 } from 'react-router-dom';
 import { getMovieDetails, BASE_IMAGE_URL } from '../API/API';
 import {} from './MovieDatails.css';
+import Cast from '../Cast/Cast';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -49,7 +52,10 @@ const MovieDetails = () => {
       <div className="movie-details-content">
         <img
           className="img_moviedetails"
-          src={`${BASE_IMAGE_URL}${movieDetails.poster_path}`}
+          src={`${BASE_IMAGE_URL}${
+            movieDetails.poster_path ||
+            '../img/istockphoto-1439973604-1024x1024.jpg'
+          }`}
           alt={movieDetails.title}
         />
         <div className="text-details">
@@ -80,7 +86,7 @@ const MovieDetails = () => {
               <NavLink
                 to="cast"
                 className="add-info"
-                activeClassName="active"
+                activeclassname="active"
                 exact
               >
                 Cast
@@ -90,7 +96,7 @@ const MovieDetails = () => {
               <NavLink
                 className="add-info"
                 to="reviews"
-                activeClassName="active"
+                activeclassname="active"
                 exact
               >
                 Reviews
@@ -102,6 +108,9 @@ const MovieDetails = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
+      <Routes>
+        <Route path="cast" element={<Cast movieId={id} />} />
+      </Routes>
     </div>
   );
 };
