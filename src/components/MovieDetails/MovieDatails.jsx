@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { Suspense, useEffect, useState } from 'react';
+import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { getMovieDetails, BASE_IMAGE_URL } from '../API/API';
 import {} from './MovieDatails.css';
 
@@ -40,6 +40,18 @@ const MovieDetails = () => {
       />
       <p>{movieDetails.overview}</p>
       <p>{movieDetails.popularity}</p>
+      <h2>Additional information</h2>
+      <ul>
+        <li>
+          <NavLink to="cast">Cast</NavLink>
+        </li>
+        <li>
+          <NavLink to="reviews">Reviews</NavLink>
+        </li>
+      </ul>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

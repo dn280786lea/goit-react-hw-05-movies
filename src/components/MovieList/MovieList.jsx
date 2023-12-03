@@ -28,13 +28,13 @@ const MoviesList = () => {
           <li className="MovieGalleryList" key={movie.id}>
             <Link className="MovieLink" to={`/movie/${movie.id}`}>
               {movie.title}
+              <img
+                src={`${BASE_IMAGE_URL}${movie.poster_path}`}
+                alt={movie.title}
+                width="200px"
+                height="200px"
+              />
             </Link>
-            <img
-              src={`${BASE_IMAGE_URL}${movie.poster_path}`}
-              alt={movie.title}
-              width="200px"
-              height="200px"
-            />
           </li>
         ))}
       </ul>
