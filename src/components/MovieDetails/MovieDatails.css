@@ -21,9 +21,8 @@
   flex-direction: column;
 }
 .button_link {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  color: black;
+  justify-content: left;
 }
 
 .date {
