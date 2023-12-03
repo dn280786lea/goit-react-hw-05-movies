@@ -14,6 +14,12 @@ const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const navigate = useNavigate();
 
+  const formatReleaseDate = releaseDate => {
+    const parts = releaseDate.split('-');
+    const year = parts[0];
+    return year;
+  };
+
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -36,34 +42,63 @@ const MovieDetails = () => {
   }
 
   return (
-    <div>
-      <Link onClick={handleClick}>Go back</Link>
-      <span>
-        <h2>{movieDetails.original_title}</h2>
-        <p>{movieDetails.release_date}</p>
-      </span>
-      <img
-        className="img_moviedetails"
-        src={`${BASE_IMAGE_URL}${movieDetails.poster_path}`}
-        alt={movieDetails.title}
-      />
-      <p>Overview: {movieDetails.overview}</p>
-      <p>User score: {movieDetails.runtime}%</p>
-      <p>{movieDetails.release_date}</p>
-
-      <h2>Additional information</h2>
-      <ul>
-        <li>
-          <NavLink to="cast" activeClassName="active" exact>
-            Cast
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="reviews" activeClassName="active" exact>
-            Reviews
-          </NavLink>
-        </li>
-      </ul>
+    <div className="movie-details-container">
+      <Link className="button_link" onClick={handleClick}>
+        Go back
+      </Link>
+      <div className="movie-details-content">
+        <img
+          className="img_moviedetails"
+          src={`${BASE_IMAGE_URL}${movieDetails.poster_path}`}
+          alt={movieDetails.title}
+        />
+        <div className="text-details">
+          <span>
+            <h2>
+              {movieDetails.original_title}
+              <span className="date">
+                {formatReleaseDate(movieDetails.release_date)}
+              </span>
+            </h2>
+          </span>
+          <p className="info">
+            <span className="info_view">Overview:</span> {movieDetails.overview}
+          </p>
+          <p className="info">
+            <span className="info_view">User score: </span>
+            {movieDetails.runtime}%
+            <p>
+              <p className="info">
+                <span className="info_view">Genres:</span>
+              </p>
+              {movieDetails.genres.map(({ name }) => name).join(', ') || 'None'}
+            </p>
+          </p>
+          <h2>Additional information</h2>
+          <ul>
+            <li>
+              <NavLink
+                to="cast"
+                className="add-info"
+                activeClassName="active"
+                exact
+              >
+                Cast
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className="add-info"
+                to="reviews"
+                activeClassName="active"
+                exact
+              >
+                Reviews
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>

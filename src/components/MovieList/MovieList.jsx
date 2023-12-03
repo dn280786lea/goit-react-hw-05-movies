@@ -22,12 +22,12 @@ const MoviesList = () => {
 
   return (
     <div className="Movie">
-      <h2>Trending today</h2>
+      <h2 className="today">Trending today</h2>
       <ul className="MovieGallery">
         {movies.map(movie => (
           <li className="MovieGalleryList" key={movie.id}>
             <Link className="MovieLink" to={`/movie/${movie.id}`}>
-              {movie.title}
+              <span className="movie-title">{movie.title}</span>
               <img
                 src={`${BASE_IMAGE_URL}${movie.poster_path}`}
                 alt={movie.title}

@@ -13,6 +13,10 @@
   width: 100%;
   height: auto;
 }
+
+.MovieGalleryList:hover {
+  transform: scale(1.1);
+}
 ul {
   list-style-type: none;
   padding-left: 0;
@@ -27,4 +31,18 @@ ul {
   text-align: center;
   text-decoration: none;
   padding-bottom: 5px;
+}
+.movie-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  line-height: 1.8;
+  color: black;
+}
+.today {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 20px;
+  line-height: 1.8;
+  text-align: center;
 }

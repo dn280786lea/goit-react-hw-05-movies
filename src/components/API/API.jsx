@@ -15,14 +15,6 @@ export const getTrending = async () => {
   }
 };
 
-export const getMovieDetails = async id => {
-  try {
-    const res = await axios.get(`${BASE_URL}/movie/${id}?api_key=${key}`);
-    return res.data;
-  } catch (error) {
-    console.error(error.message);
-  }
-};
 export const searchMovies = async query => {
   try {
     const res = await axios.get(
@@ -54,4 +46,13 @@ export const searchRewie = async id => {
     console.error(error.message);
   }
 };
+export const getMovieDetails = async id => {
+  try {
+    const res = await axios.get(`${BASE_URL}/movie/${id}?api_key=${key}`);
+    return res.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
 export { BASE_URL, key, BASE_IMAGE_URL };
