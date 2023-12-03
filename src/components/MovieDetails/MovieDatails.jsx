@@ -1,5 +1,11 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
+import {
+  useParams,
+  useNavigate,
+  NavLink,
+  Outlet,
+  Link,
+} from 'react-router-dom';
 import { getMovieDetails, BASE_IMAGE_URL } from '../API/API';
 import {} from './MovieDatails.css';
 
@@ -22,7 +28,7 @@ const MovieDetails = () => {
   }, [id]);
 
   const handleClick = () => {
-    navigate(-1); // Go back to the previous page
+    navigate(-1);
   };
 
   if (!movieDetails) {
@@ -31,22 +37,31 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <h2>{movieDetails.original_title}</h2>
-      <button onClick={handleClick}>Go back</button>
+      <Link onClick={handleClick}>Go back</Link>
+      <span>
+        <h2>{movieDetails.original_title}</h2>
+        <p>{movieDetails.release_date}</p>
+      </span>
       <img
         className="img_moviedetails"
         src={`${BASE_IMAGE_URL}${movieDetails.poster_path}`}
         alt={movieDetails.title}
       />
-      <p>{movieDetails.overview}</p>
-      <p>{movieDetails.popularity}</p>
+      <p>Overview: {movieDetails.overview}</p>
+      <p>User score: {movieDetails.runtime}%</p>
+      <p>{movieDetails.release_date}</p>
+
       <h2>Additional information</h2>
       <ul>
         <li>
-          <NavLink to="cast">Cast</NavLink>
+          <NavLink to="cast" activeClassName="active" exact>
+            Cast
+          </NavLink>
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <NavLink to="reviews" activeClassName="active" exact>
+            Reviews
+          </NavLink>
         </li>
       </ul>
       <Suspense fallback={<div>Loading...</div>}>

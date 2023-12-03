@@ -1,0 +1,10 @@
+.cast-info {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.class-info-character {
+  width: calc((100% - 48px) / 6);
+  box-sizing: border-box;
+}

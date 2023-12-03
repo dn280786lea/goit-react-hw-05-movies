@@ -33,4 +33,25 @@ export const searchMovies = async query => {
     console.error(error.message);
   }
 };
+
+export const searchCredits = async id => {
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/movie/${id}/credits?api_key=${key}`
+    );
+    return res.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+export const searchRewie = async id => {
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/movie/${id}/reviews?api_key=${key}`
+    );
+    return res.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 export { BASE_URL, key, BASE_IMAGE_URL };
