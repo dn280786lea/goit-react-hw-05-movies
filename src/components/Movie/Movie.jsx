@@ -34,9 +34,9 @@ const MovieSearch = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSearchSubmit} className="form">
-        <div className="input-container">
+    <div>
+      <div className="form-container">
+        <form onSubmit={handleSearchSubmit} className="form">
           <input
             onChange={evt => setQuery(evt.target.value)}
             placeholder="search"
@@ -49,8 +49,10 @@ const MovieSearch = () => {
           <button className="button" type="submit">
             Search
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
+
+      {error && <h3>{error}</h3>}
       <ul className="MovieGallery">
         {searchResults.map(movie => (
           <li
