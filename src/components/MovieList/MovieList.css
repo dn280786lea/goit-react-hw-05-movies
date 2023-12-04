@@ -12,6 +12,8 @@
 .MovieGallery img {
   width: 100%;
   height: auto;
+  border: 1px solid #333;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .MovieGalleryList:hover {
@@ -33,7 +35,7 @@ ul {
   padding-bottom: 5px;
 }
 .movie-title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 20px;
   line-height: 1.8;

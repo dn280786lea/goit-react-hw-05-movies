@@ -27,7 +27,11 @@ const MoviesList = () => {
         {movies.map(movie => (
           <li className="MovieGalleryList" key={movie.id}>
             <Link className="MovieLink" to={`/movie/${movie.id}`}>
-              <span className="movie-title">{movie.title}</span>
+              <span className="movie-title">
+                {movie.title} <span className="info_view"></span>
+                {movie.vote_average.toFixed(1)}%
+              </span>
+
               <img
                 src={`${BASE_IMAGE_URL}${movie.poster_path}`}
                 alt={movie.title}
