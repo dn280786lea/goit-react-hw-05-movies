@@ -29,13 +29,13 @@ const MoviesList = () => {
             <Link className="MovieLink" to={`/movie/${movie.id}`}>
               <span className="movie-title">{movie.title}</span>
               <img
-                src={
-                  `${BASE_IMAGE_URL}${movie.poster_path}` ||
-                  '../img/istockphoto-1439973604-1024x1024.jpg'
-                }
+                src={`${BASE_IMAGE_URL}${movie.poster_path}`}
                 alt={movie.title}
                 width="200px"
                 height="200px"
+                onError={e => {
+                  e.target.src = process.env.PUBLIC_URL + '/horse.jpg';
+                }}
               />
             </Link>
           </li>

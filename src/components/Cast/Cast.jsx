@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { searchCredits } from '../API/API';
 import {} from './Cast.css';
-
 const Cast = () => {
   const { id } = useParams();
   const [castData, setCastData] = useState(null);
@@ -26,7 +25,7 @@ const Cast = () => {
 
   return (
     <div>
-      <h2>Cast Information</h2>
+      <h2>Addition Information</h2>
       <ul className="cast-info">
         {castData.cast.map(actor => (
           <li className="class-info-character" key={actor.id}>
@@ -34,12 +33,14 @@ const Cast = () => {
               src={
                 actor.profile_path
                   ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-                  : '../img/istockphoto-1439973604-1024x1024.jpg'
+                  : process.env.PUBLIC_URL + '/horse.jpg'
               }
               alt={actor.name}
+              width="220px"
+              height="300px"
             />
-            <p>{actor.name}</p>
-            <p>Character: {actor.character}</p>
+            <p className="name-actors">{actor.name}</p>
+            <p className="name-actors">Character: {actor.character}</p>
           </li>
         ))}
       </ul>
