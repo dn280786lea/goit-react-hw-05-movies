@@ -9,16 +9,19 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 20px;
+  box-sizing: border-box;
 }
 
 .img_moviedetails {
-  width: 400px;
+  max-width: 100%;
   height: auto;
+  box-sizing: border-box;
 }
 
 .text-details {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 .button_link {
   color: black;
