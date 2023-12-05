@@ -51,26 +51,29 @@ ul {
 }
 
 .MovieGallery {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.MovieGalleryList {
-  width: calc((100% - 48px) / 6);
-  box-sizing: border-box;
+  display: grid;
+  max-width: calc(-48px + 100vw);
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 40px;
 }
 
-.MovieGallery img {
+.MovieGalleryList {
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.img {
+  display: block;
+  border-radius: 10px;
   width: 100%;
   height: auto;
+  border: 1px solid #333;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .MovieGalleryList:hover {
   transform: scale(1.1);
-}
-.Movie {
-  margin: 15px;
 }
 .MovieLink {
   text-align: center;
