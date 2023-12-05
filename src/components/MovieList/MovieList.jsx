@@ -4,7 +4,7 @@ import './MovieList.css';
 
 const defaultImg =
   'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
-const MoviesList = ({ movies, defaultImg }) => {
+const MoviesList = ({ movies }) => {
   return (
     <ul className="MovieGallery">
       {movies.map(movie => (

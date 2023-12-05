@@ -32,7 +32,7 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [id]);
 
-  if (!movieDetails) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 
