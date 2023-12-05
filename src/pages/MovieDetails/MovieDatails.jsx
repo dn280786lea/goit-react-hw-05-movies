@@ -1,18 +1,14 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import {
-  useParams,
-  useNavigate,
-  NavLink,
-  Outlet,
-  Link,
-} from 'react-router-dom';
-import { getMovieDetails, BASE_IMAGE_URL } from '../API/API';
-import {} from './MovieDatails.css';
+import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
+import { getMovieDetails, BASE_IMAGE_URL } from '../../components/API/API';
+import './MovieDatails.css';
+import { GoBack } from '..//../components/ButtonBack/buttonBack';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
 
   const formatReleaseDate = releaseDate => {
     const parts = releaseDate.split('-');
@@ -23,19 +19,18 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
+        setLoading(true);
         const details = await getMovieDetails(id);
         setMovieDetails(details);
       } catch (error) {
         console.error(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchMovieDetails();
   }, [id]);
-
-  const handleClick = () => {
-    navigate(-1);
-  };
 
   if (!movieDetails) {
     return <div>Loading...</div>;
@@ -43,9 +38,7 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details-container">
-      <Link className="button_link" onClick={handleClick}>
-        Go back
-      </Link>
+      <GoBack url={location.state?.from || '/'} />
       <div className="movie-details-content">
         <img
           className="img_moviedetails"
@@ -75,6 +68,7 @@ const MovieDetails = () => {
             <span className="info_view">Genres:</span>
           </p>
           {movieDetails.genres.map(({ name }) => name).join(', ') || 'None'}
+
           <h2>Additional information</h2>
           <ul>
             <li>

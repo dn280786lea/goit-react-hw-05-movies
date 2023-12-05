@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { searchMovies } from '../API/API';
-import { BASE_IMAGE_URL } from '../API/API';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { searchMovies } from '../../components/API/API';
 import {} from './Movie.css';
 
 const MovieSearch = () => {
-  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const location = useLocation();
+  const query = searchParams.get('query') || '';
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   const handleSearchSubmit = async evt => {
     evt.preventDefault();
-
-    if (query.trim() === '') {
-      setError('Please enter a search query.');
-      return;
-    }
 
     try {
       const movies = await searchMovies(query);
       setSearchResults(movies.results || []);
       setError('');
+
+      setSearchParams({ query });
     } catch (error) {
       console.error('Failed to fetch movies:', error.message);
       setSearchResults([]);
@@ -29,16 +28,12 @@ const MovieSearch = () => {
     }
   };
 
-  const handleMovieClick = id => {
-    navigate(`/movie/${id}`);
-  };
-
   return (
     <div>
       <div className="form-container">
         <form onSubmit={handleSearchSubmit} className="form">
           <input
-            onChange={evt => setQuery(evt.target.value)}
+            onChange={evt => setSearchParams({ query: evt.target.value })}
             placeholder="search"
             name="search"
             type="text"
@@ -55,22 +50,22 @@ const MovieSearch = () => {
       {error && <h3>{error}</h3>}
       <ul className="MovieGallery">
         {searchResults.map(movie => (
-          <li
-            className="MovieGalleryList"
-            key={movie.id}
-            onClick={() => handleMovieClick(movie.id)}
-          >
-            <Link className="MovieLink" to={`/movie/${movie.id}`}>
+          <li className="MovieGalleryList" key={movie.id}>
+            <Link
+              className="MovieLink"
+              state={{ from: location }}
+              to={`/movie/${movie.id}`}
+            >
               <span className="movie-title">{movie.title}</span>
+
               <img
                 src={
                   movie.poster_path
-                    ? `${BASE_IMAGE_URL}${movie.poster_path}`
-                    : './img/istockphoto-1439973604-1024x1024.jpg'
+                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                    : defaultImg
                 }
-                alt={movie.title}
-                width="200px"
-                height="200px"
+                width={250}
+                alt="poster"
               />
             </Link>
           </li>

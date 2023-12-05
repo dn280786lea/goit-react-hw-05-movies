@@ -1,12 +1,15 @@
 .cast-info {
   display: flex;
-  gap: 5px;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: 20px;
 }
 .class-info-character {
-  width: calc((100% - 36px) / 8);
   box-sizing: border-box;
+  margin: 0px;
 }
 ul {
   list-style-type: none;

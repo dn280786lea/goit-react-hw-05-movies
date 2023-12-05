@@ -1,51 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { getTrending } from '../API/API';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import {} from './MovieList.css';
-import { BASE_IMAGE_URL } from '../API/API';
+import './MovieList.css';
 
-const MoviesList = () => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const trendingMovies = await getTrending();
-        setMovies(trendingMovies.results);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
+const defaultImg =
+  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+const MoviesList = ({ movies, defaultImg }) => {
   return (
-    <div className="Movie">
-      <h2 className="today">Trending today</h2>
-      <ul className="MovieGallery">
-        {movies.map(movie => (
-          <li className="MovieGalleryList" key={movie.id}>
-            <Link className="MovieLink" to={`/movie/${movie.id}`}>
-              <span className="movie-title">
-                {movie.title} <span className="info_view"></span>
+    <ul className="MovieGallery">
+      {movies.map(movie => (
+        <li className="MovieGalleryList" key={movie.id}>
+          <Link className="MovieLink" to={`/movie/${movie.id}`}>
+            <span className="movie-title">
+              {movie.title}
+              <span className="info_view">
                 {movie.vote_average.toFixed(1)}%
               </span>
-
-              <img
-                src={`${BASE_IMAGE_URL}${movie.poster_path}`}
-                alt={movie.title}
-                width="200px"
-                height="200px"
-                onError={e => {
-                  e.target.src = process.env.PUBLIC_URL + '/horse.jpg';
-                }}
-              />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+            </span>
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : defaultImg
+              }
+              width={250}
+              alt="poster"
+            />
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 

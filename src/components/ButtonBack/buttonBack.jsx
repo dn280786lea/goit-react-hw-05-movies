@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Button = ({ children }) => {
-  return <button>{children}</button>;
+export const GoBack = ({ url }) => {
+  return (
+    <div>
+      <Link to={url}>GoBack</Link>
+    </div>
+  );
 };
-
-export default Button;
