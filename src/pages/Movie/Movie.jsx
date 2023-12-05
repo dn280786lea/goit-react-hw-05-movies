@@ -56,8 +56,6 @@ const MovieSearch = () => {
               state={{ from: location }}
               to={`/movie/${movie.id}`}
             >
-              <span className="movie-title">{movie.title}</span>
-
               <img
                 src={
                   movie.poster_path
@@ -67,6 +65,7 @@ const MovieSearch = () => {
                 width={250}
                 alt="poster"
               />
+              <span className="movie-title">{movie.title}</span>
             </Link>
           </li>
         ))}

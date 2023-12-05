@@ -1,21 +1,18 @@
 .MovieGallery {
   display: grid;
-  max-width: 100%;
+  max-width: calc(-48px + 100vw);
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 40px;
-  margin: 50px auto 0px;
-  padding: 0;
-  list-style: none;
 }
 
 .MovieGalleryList {
   box-sizing: border-box;
-  border-radius: 10px;
   overflow: hidden;
 }
 
 .img {
   display: block;
+  border-radius: 10px;
   width: 100%;
   height: auto;
   border: 1px solid #333;
@@ -55,7 +52,7 @@ ul {
   line-height: 1.8;
   text-align: center;
 }
-.info_view {
+.info_views {
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;

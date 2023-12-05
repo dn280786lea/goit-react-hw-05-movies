@@ -10,12 +10,6 @@ const MoviesList = ({ movies }) => {
       {movies.map(movie => (
         <li className="MovieGalleryList" key={movie.id}>
           <Link className="MovieLink" to={`/movie/${movie.id}`}>
-            <span className="movie-title">
-              {movie.title}
-              <span className="info_view">
-                {movie.vote_average.toFixed(1)}%
-              </span>
-            </span>
             <img
               src={
                 movie.poster_path
@@ -25,6 +19,12 @@ const MoviesList = ({ movies }) => {
               width={250}
               alt="poster"
             />
+            <span className="movie-title">
+              {movie.title}
+              <span className="info_views">
+                {movie.vote_average.toFixed(1)}%
+              </span>
+            </span>
           </Link>
         </li>
       ))}
