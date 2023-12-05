@@ -67,7 +67,9 @@ const MovieDetails = () => {
           <p className="info">
             <span className="info_view">Genres:</span>
           </p>
-          {movieDetails.genres.map(({ name }) => name).join(', ') || 'None'}
+          <span className="info_view-genres">
+            {movieDetails.genres.map(({ name }) => name).join(', ') || 'None'}
+          </span>
           <h2>Additional information</h2>
           <ul>
             <li>

@@ -25,7 +25,6 @@ const Cast = () => {
 
   return (
     <div>
-      <h2>Addition Information</h2>
       <ul className="cast-info">
         {castData.cast.map(actor => (
           <li className="class-info-character" key={actor.id}>
