@@ -32,6 +32,10 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [id]);
 
+  if (!movieDetails) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="movie-details-container">
       <GoBack url={location.state?.from || '/'} />
@@ -64,7 +68,6 @@ const MovieDetails = () => {
             <span className="info_view">Genres:</span>
           </p>
           {movieDetails.genres.map(({ name }) => name).join(', ') || 'None'}
-
           <h2>Additional information</h2>
           <ul>
             <li>
@@ -90,6 +93,7 @@ const MovieDetails = () => {
           </ul>
         </div>
       </div>
+      {loading && <div>Loading...</div>}
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
