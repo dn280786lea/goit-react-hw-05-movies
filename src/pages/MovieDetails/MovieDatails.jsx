@@ -47,6 +47,7 @@ const MovieDetails = () => {
             e.target.src = process.env.PUBLIC_URL + '/horse.jpg';
           }}
           alt={movieDetails.title}
+          width={370}
         />
         <div className="text-details">
           <span>
@@ -70,7 +71,7 @@ const MovieDetails = () => {
           <span className="info_view-genres">
             {movieDetails.genres.map(({ name }) => name).join(', ') || 'None'}
           </span>
-          <h2>Additional information</h2>
+          <h2 className="add_information">Additional information</h2>
           <ul>
             <li>
               <NavLink

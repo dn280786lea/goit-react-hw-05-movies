@@ -15,7 +15,6 @@
 .img_moviedetails {
   max-width: 100%;
   height: auto;
-  box-sizing: border-box;
 }
 
 .text-details {
@@ -32,7 +31,7 @@
   padding-left: 5px;
 }
 .info {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 20px;
   line-height: 1.5;
@@ -46,14 +45,17 @@
 }
 
 .info_view {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 20px;
   line-height: 1.5;
 }
 .info_view-genres {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 20px;
   line-height: 1.5;
+}
+.add_information {
+  padding-top: 40px;
 }
