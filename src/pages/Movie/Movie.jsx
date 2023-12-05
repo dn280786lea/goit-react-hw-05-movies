@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { searchMovies } from '../../components/API/API';
 import './Movie.css';
+import MoviesList from 'components/MovieList/MovieList';
 
 const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState('');
-  const location = useLocation();
-  const defaultImg =
-    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   const fetchMoviesByName = useCallback(async query => {
     try {
@@ -51,28 +49,7 @@ const MovieSearch = () => {
       </div>
 
       {error && <h3>{error}</h3>}
-      <ul className="MovieGallery">
-        {searchResults.map(movie => (
-          <li className="MovieGalleryList" key={movie.id}>
-            <Link
-              className="MovieLink"
-              state={{ from: location }}
-              to={`/movie/${movie.id}`}
-            >
-              <img
-                src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                    : defaultImg
-                }
-                width={250}
-                alt="poster"
-              />
-              <span className="movie-title">{movie.title}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <MoviesList movies={searchResults} />
     </div>
   );
 };
