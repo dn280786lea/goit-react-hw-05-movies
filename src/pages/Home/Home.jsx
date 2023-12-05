@@ -6,7 +6,6 @@ import '../../components/MovieList/MovieList.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  const defaultImg = 'https://www.pinterest.com/pin/700802392037815473/';
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -23,7 +22,7 @@ const Home = () => {
   return (
     <div className="Movie">
       <h2 className="today">Trending today</h2>
-      <MoviesList movies={movies} defaultImg={defaultImg} />
+      <MoviesList movies={movies} />
     </div>
   );
 };

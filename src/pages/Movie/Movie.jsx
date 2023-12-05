@@ -1,44 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { searchMovies } from '../../components/API/API';
-import {} from './Movie.css';
+import './Movie.css';
 
 const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState('');
   const location = useLocation();
-  const query = searchParams.get('query') || '';
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
-  const handleSearchSubmit = async evt => {
-    evt.preventDefault();
-
+  const fetchMoviesByName = useCallback(async query => {
     try {
-      const movies = await searchMovies(query);
-      setSearchResults(movies.results || []);
-      setError('');
-
-      setSearchParams({ query });
+      const moviesRequestByName = await searchMovies(query);
+      setSearchResults(moviesRequestByName.results);
     } catch (error) {
-      console.error('Failed to fetch movies:', error.message);
-      setSearchResults([]);
-      setError('Failed to fetch movies. Please try again.');
+      console.log(error);
+      setError('Error fetching movies.');
     }
+  }, []);
+  useEffect(() => {
+    const search = searchParams.get('search');
+    if (!search) return;
+    searchMovies(search);
+  }, [fetchMoviesByName, searchParams]);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const search = e.target.search.value.trim().toLowerCase();
+    if (!search) return;
+    setSearchParams({ query: search });
+    await fetchMoviesByName(search);
   };
 
   return (
     <div>
       <div className="form-container">
-        <form onSubmit={handleSearchSubmit} className="form">
+        <form onSubmit={handleSubmit} className="form">
           <input
-            onChange={evt => setSearchParams({ query: evt.target.value })}
             placeholder="search"
             name="search"
             type="text"
-            autoComplete="off"
-            value={query}
             className="input"
           />
           <button className="button" type="submit">
