@@ -32,10 +32,6 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [id]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="movie-details-container">
       <GoBack url={location.state?.from || '/'} />
