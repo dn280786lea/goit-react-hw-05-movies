@@ -26,7 +26,7 @@ const MoviesList = ({ movies }) => {
             <span className="movie-title">
               {movie.title}
               <span className="info_views">
-                {movie.vote_average.toFixed(1)}%
+                {(movie.vote_average * 10).toFixed(1)}%
               </span>
             </span>
           </Link>
