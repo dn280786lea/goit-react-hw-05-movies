@@ -47,7 +47,7 @@ const MovieDetails = () => {
             e.target.src = process.env.PUBLIC_URL + '/horse.jpg';
           }}
           alt={movieDetails.title}
-          width={370}
+          width={350}
         />
         <div className="text-details">
           <span>

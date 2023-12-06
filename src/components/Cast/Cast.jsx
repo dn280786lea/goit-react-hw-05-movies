@@ -35,8 +35,7 @@ const Cast = () => {
                   : process.env.PUBLIC_URL + '/horse.jpg'
               }
               alt={actor.name}
-              width="220px"
-              height="300px"
+              width={250}
             />
             <p className="name-actors">{actor.name}</p>
             <p className="name-actors">Character: {actor.character}</p>
