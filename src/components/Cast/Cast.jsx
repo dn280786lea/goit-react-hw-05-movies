@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { searchCredits } from '../API/API';
 import {} from './Cast.css';
+
 const Cast = () => {
   const { id } = useParams();
   const [castData, setCastData] = useState(null);

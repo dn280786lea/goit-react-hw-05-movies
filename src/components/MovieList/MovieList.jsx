@@ -6,33 +6,35 @@ const defaultImg =
 const MoviesList = ({ movies }) => {
   const location = useLocation();
   return (
-    <ul className="MovieGallery">
-      {movies.map(movie => (
-        <li className="MovieGalleryList" key={movie.id}>
-          <Link
-            className="MovieLink"
-            to={`/movie/${movie.id}`}
-            state={{ from: location }}
-          >
-            <img
-              src={
-                movie.poster_path
-                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                  : defaultImg
-              }
-              width={250}
-              alt="poster"
-            />
-            <span className="movie-title">
-              {movie.title}
-              <span className="info_views">
-                {(movie.vote_average * 10).toFixed(1)}%
+    <div className="moviegallery-list">
+      <ul className="MovieGallery">
+        {movies.map(movie => (
+          <li className="MovieGalleryList" key={movie.id}>
+            <Link
+              className="MovieLink"
+              to={`/movie/${movie.id}`}
+              state={{ from: location }}
+            >
+              <img
+                src={
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                    : defaultImg
+                }
+                width={265}
+                alt="poster"
+              />
+              <span className="movie-title">
+                {movie.title}
+                <span className="info_views">
+                  {(movie.vote_average * 10).toFixed(1)}%
+                </span>
               </span>
-            </span>
-          </Link>
-        </li>
-      ))}
-    </ul>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

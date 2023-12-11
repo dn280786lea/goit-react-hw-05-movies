@@ -54,5 +54,15 @@ export const getMovieDetails = async id => {
     console.error(error.message);
   }
 };
+export const getMovieVideo = async id => {
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/movie/${id}/videos?api_key=${key}`
+    );
+    return res.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 
 export { BASE_URL, key, BASE_IMAGE_URL };
