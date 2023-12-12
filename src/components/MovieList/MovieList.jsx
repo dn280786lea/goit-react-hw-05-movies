@@ -21,7 +21,7 @@ const MoviesList = ({ movies }) => {
                     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
                     : defaultImg
                 }
-                width={270}
+                width={280}
                 alt="poster"
               />
               <div className="img_title">

@@ -25,9 +25,9 @@ ul {
   padding-left: 4px;
   padding-right: 4px;
   text-align: center;
-  border: 2px solid #333;
+  border: 1px solid #333;
   margin-right: 10px;
-  height: 35px;
+  height: 30px;
   border-radius: 20px;
 }
 
@@ -35,7 +35,7 @@ ul {
   width: 150px;
   height: 35px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   top: 0;
   right: 0;
   border-radius: 20px;
@@ -43,59 +43,13 @@ ul {
 }
 
 .button:hover {
-  background-color: grey;
+  background-color: #333;
   color: #fff;
 }
 .form-container {
   display: flex;
 }
 
-.MovieGallery {
-  display: grid;
-  max-width: calc(-48px + 100vw);
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 40px;
-}
-
-.MovieGalleryList {
-  box-sizing: border-box;
-  overflow: hidden;
-  margin: 0px;
-}
-
-.img {
-  display: block;
-  border-radius: 10px;
-  width: 100%;
-  height: auto;
-  border: 1px solid #333;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}
-
-.MovieGalleryList:hover {
-  transform: scale(1.1);
-}
-.MovieLink {
-  text-align: center;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  padding-bottom: 5px;
-}
-.movie-title {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 20px;
-  line-height: 1.8;
-  color: black;
-}
-.today {
-  font-size: 31px;
-  font-weight: 700;
-  line-height: 20px;
-  line-height: 1.8;
-  text-align: center;
-}
 .form-container {
   top: 0;
   left: 0;
