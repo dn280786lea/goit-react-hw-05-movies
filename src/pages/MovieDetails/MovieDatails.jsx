@@ -50,14 +50,12 @@ const MovieDetails = () => {
           width={350}
         />
         <div className="text-details">
-          <span>
-            <h2>
-              {movieDetails.original_title}
-              <span className="date">
-                {formatReleaseDate(movieDetails.release_date)}
-              </span>
-            </h2>
-          </span>
+          <h2>
+            {movieDetails.original_title}
+            <span className="date">
+              {formatReleaseDate(movieDetails.release_date)}
+            </span>
+          </h2>
           <p className="info">
             <span className="info_view">Overview:</span> {movieDetails.overview}
           </p>
