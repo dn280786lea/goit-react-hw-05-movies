@@ -24,12 +24,14 @@ const MoviesList = ({ movies }) => {
                 width={265}
                 alt="poster"
               />
-              <span className="movie-title">
-                {movie.title}
-                <span className="info_views">
-                  {(movie.vote_average * 10).toFixed(1)}%
+              <div className="img_title">
+                <span className="movie-title">
+                  {movie.title}
+                  <span className="info_views">
+                    {movie.vote_average.toFixed(1)}
+                  </span>
                 </span>
-              </span>
+              </div>
             </Link>
           </li>
         ))}

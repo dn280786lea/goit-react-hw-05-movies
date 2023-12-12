@@ -73,7 +73,7 @@ const MovieDetails = () => {
           </span>
           <h2 className="add_information">Additional information</h2>
           <ul>
-            <li>
+            <li className="cast-add-info">
               <NavLink
                 to="cast"
                 className="add-info"
@@ -83,7 +83,7 @@ const MovieDetails = () => {
                 Cast
               </NavLink>
             </li>
-            <li>
+            <li className="cast-add-info">
               <NavLink
                 to="reviews"
                 className="add-info"

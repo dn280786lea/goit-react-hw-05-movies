@@ -9,6 +9,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: antiquewhite;
   box-sizing: border-box;
+  font-size: 16px;
+  overflow-x: hidden;
 }
 
 code {
