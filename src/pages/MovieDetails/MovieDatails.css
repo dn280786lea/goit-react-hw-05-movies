@@ -1,7 +1,7 @@
 .movie-details-container {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   margin: 15px;
   font-size: 16px;
   font-weight: 700;
