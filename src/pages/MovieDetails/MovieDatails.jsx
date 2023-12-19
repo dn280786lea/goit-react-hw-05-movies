@@ -38,7 +38,7 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details-container">
-      <GoBack url={location.state?.from || '/'} />
+      <GoBack className="button_back" url={location.state?.from || '/'} />
       <div className="movie-details-content">
         <img
           className="img_moviedetails"
@@ -50,7 +50,7 @@ const MovieDetails = () => {
           width={300}
         />
         <div className="text-details">
-          <h2>
+          <h2 className="movie-details-title">
             {movieDetails.original_title}
             <span className="date">
               {formatReleaseDate(movieDetails.release_date)}
@@ -70,7 +70,7 @@ const MovieDetails = () => {
             {movieDetails.genres.map(({ name }) => name).join(', ') || 'None'}
           </span>
           <h2 className="add_information">Additional information</h2>
-          <ul>
+          <ul className="cast-info-review">
             <li className="cast-add-info">
               <NavLink
                 to="cast"

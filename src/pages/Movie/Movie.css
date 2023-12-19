@@ -13,6 +13,7 @@ ul {
   border-radius: 3px;
   overflow: hidden;
   background-color: antiquewhite;
+  margin: 0 auto;
 }
 
 .input {
@@ -25,7 +26,7 @@ ul {
   padding-left: 4px;
   padding-right: 4px;
   text-align: center;
-  border: 1px solid #333;
+  border: none;
   margin-right: 10px;
   height: 30px;
   border-radius: 20px;
@@ -35,19 +36,17 @@ ul {
   width: 150px;
   height: 35px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   top: 0;
   right: 0;
   border-radius: 20px;
   background-color: 333;
+  border: none;
 }
 
 .button:hover {
   background-color: #333;
   color: #fff;
-}
-.form-container {
-  display: flex;
 }
 
 .form-container {
@@ -58,9 +57,6 @@ ul {
   justify-content: center;
   align-items: center;
   min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 24px 12px 24px;
   margin-bottom: 15px;
 }

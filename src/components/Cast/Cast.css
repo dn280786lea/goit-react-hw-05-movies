@@ -5,11 +5,14 @@
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  gap: 20px;
+  gap: 10px;
 }
 .class-info-character {
   box-sizing: border-box;
   margin: 0px;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 5px;
 }
 ul {
   list-style-type: none;
@@ -18,16 +21,14 @@ ul {
 }
 
 .name-actors {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 400;
   line-height: 20px;
-  line-height: 1.8;
+  line-height: 1.5;
   color: black;
   text-align: center;
 }
 .img {
   display: block;
-  border-radius: 10px;
-  border: 1px solid #333;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 5px;
 }
