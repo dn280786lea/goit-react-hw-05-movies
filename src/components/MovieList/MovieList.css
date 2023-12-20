@@ -1,6 +1,6 @@
 .MovieGallery {
   display: grid;
-  max-width: calc(-36px + 100vw);
+  max-width: calc(42px + 100vw);
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 40px;
 }
@@ -64,7 +64,7 @@ ul {
   font-size: 30px;
   font-weight: 700;
   line-height: 20px;
-  line-height: 1.8;
+  line-height: 1;
   text-align: center;
   color: #333;
 }
