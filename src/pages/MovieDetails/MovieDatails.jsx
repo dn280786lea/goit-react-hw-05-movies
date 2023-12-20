@@ -47,7 +47,7 @@ const MovieDetails = () => {
             e.target.src = process.env.PUBLIC_URL + '/horse.jpg';
           }}
           alt={movieDetails.title}
-          width={300}
+          width={320}
         />
         <div className="text-details">
           <h2 className="movie-details-title">
@@ -62,6 +62,10 @@ const MovieDetails = () => {
           <p className="info">
             <span className="info_view">User score: </span>
             {movieDetails.runtime}%
+          </p>
+          <p className="info">
+            <span className="info_view">Rating: </span>
+            {movieDetails.vote_average.toFixed(1)}
           </p>
           <p className="info">
             <span className="info_view">Genres:</span>

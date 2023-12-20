@@ -30,16 +30,17 @@ const Cast = () => {
         {castData.cast.map(actor => (
           <li className="class-info-character" key={actor.id}>
             <img
+              className="circle-img"
               src={
                 actor.profile_path
                   ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
                   : process.env.PUBLIC_URL + '/horse.jpg'
               }
               alt={actor.name}
-              width={200}
+              width={180}
             />
             <p className="name-actors">{actor.name}</p>
-            <p className="name-actors">Character: {actor.character}</p>
+            <p className="name-character">Character: {actor.character}</p>
           </li>
         ))}
       </ul>

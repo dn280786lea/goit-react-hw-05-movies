@@ -29,6 +29,7 @@
   border: 2px solid antiquewhite;
   align-self: center;
   z-index: 3;
+  position: relative;
 }
 
 .MovieGalleryList:hover {
@@ -57,6 +58,7 @@ ul {
   line-height: 1.5;
   color: #333;
   text-align: center;
+  margin-right: 3px;
 }
 .today {
   font-size: 30px;
@@ -70,7 +72,6 @@ ul {
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
-  line-height: 1.5;
   color: #333;
   padding-left: 5px;
 }

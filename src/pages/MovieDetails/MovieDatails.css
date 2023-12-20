@@ -4,7 +4,7 @@
     margin: 15px;
   }
   img .img_moviedetails {
-    width: 100%; /* Ширина 100% от родительского блока */
+    width: 100%;
     display: block;
     margin: 0 auto;
   }
@@ -19,10 +19,15 @@
   .movie-details-title {
     text-align: center;
     font-size: 16px;
+    padding-top: 20px;
+    font-style: italic;
   }
   .add_information {
     text-align: center;
     font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-style: italic;
   }
   .cast-info-review {
     display: flex;
@@ -31,6 +36,18 @@
     align-items: center;
     text-align: center;
     text-decoration: none;
+  }
+  .add-info {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    line-height: 1.5;
+    text-decoration: none;
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    color: white;
+    background-color: #333;
+    border-radius: 20px;
   }
 }
 @media screen and (min-width: 780px) {
@@ -66,17 +83,20 @@
     padding-left: 5px;
   }
   .info {
-    font-size: 16px;
     font-weight: 400;
     line-height: 20px;
     line-height: 1.5;
   }
   .add-info {
-    font-size: 16px;
     font-weight: 700;
     line-height: 20px;
     line-height: 1.5;
-    color: black;
+    text-decoration: none;
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    color: white;
+    background-color: #333;
+    border-radius: 20px;
   }
 
   .info_view {
@@ -95,12 +115,14 @@
     padding-top: 10px;
   }
   .img_moviedetails {
-    width: 300px;
+    width: 320px;
+    height: auto;
   }
 }
 .movie-details-title {
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
+  font-style: italic;
 }
 .add_information {
   text-align: center;
