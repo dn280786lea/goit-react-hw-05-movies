@@ -95,6 +95,16 @@ const MovieDetails = () => {
                 Reviews
               </NavLink>
             </li>
+            <li className="cast-add-info">
+              <NavLink
+                to="movie"
+                className="add-info"
+                activeClassName="active"
+                exact={true}
+              >
+                Trailer
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

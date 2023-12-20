@@ -54,6 +54,7 @@ export const getMovieDetails = async id => {
     console.error(error.message);
   }
 };
+
 export const getMovieVideo = async id => {
   try {
     const res = await axios.get(

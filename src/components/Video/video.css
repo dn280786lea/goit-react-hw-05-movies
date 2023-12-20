@@ -1,0 +1,22 @@
+@media screen and (min-width: 320px) {
+  .movie-container {
+    margin: 15px;
+  }
+  .video-player {
+    margin: 0 auto;
+    width: 320px;
+    height: 250px;
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 780px) {
+  .movie-container {
+    margin: 15px;
+  }
+  .video-player {
+    margin: 0 auto;
+    width: 320px;
+    height: 250px;
+    margin-top: 15px;
+  }
+}
