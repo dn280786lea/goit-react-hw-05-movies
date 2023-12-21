@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './MovieList.css';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 const defaultImg =
   'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 const MoviesList = ({ movies }) => {
@@ -29,6 +31,16 @@ const MoviesList = ({ movies }) => {
                   {movie.title}
                   <span className="info_views">
                     {movie.vote_average.toFixed(1)}
+                    <Stack spacing={1} alignItems="center" marginTop={1}>
+                      <Rating
+                        name="half-rating-read"
+                        value={movie.vote_average.toFixed(1)}
+                        precision={0.1}
+                        readOnly
+                        max={10}
+                        className="rating"
+                      />
+                    </Stack>
                   </span>
                 </span>
               </div>
