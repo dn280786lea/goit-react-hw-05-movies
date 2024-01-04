@@ -30,7 +30,9 @@ const Movie = () => {
   if (!videos || videos.length === 0) {
     return <div>No videos found for this movie.</div>;
   }
+
   const firstVideo = videos[0];
+
   return (
     <div className="movie-container">
       <iframe

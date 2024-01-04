@@ -58,7 +58,7 @@ export const getMovieDetails = async id => {
 export const getMovieVideo = async id => {
   try {
     const res = await axios.get(
-      `${BASE_URL}/movie/${id}/videos?api_key=${key}`
+      `${BASE_URL}/movie/${id}/videos?api_key=${key}&type=Trailer&official=true`
     );
     return res.data;
   } catch (error) {
